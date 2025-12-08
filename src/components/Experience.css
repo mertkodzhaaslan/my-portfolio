@@ -1,0 +1,227 @@
+.experience-section {
+  min-height: 100vh;
+  padding: 100px 7.6923%;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.experience-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.experience-header.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 32px;
+}
+
+/* Continuous timeline line container */
+.timeline-line-container {
+  position: relative;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* The continuous vertical line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--border-subtle);
+}
+
+/* Animated dot that follows scroll */
+.timeline-dot-animated {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: var(--brand-primary);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 
+    0 0 0 4px var(--bg-primary), 
+    0 0 0 6px var(--brand-primary),
+    0 0 20px rgba(0, 255, 209, 0.5);
+  transition: top 0.1s ease-out, opacity 0.3s ease;
+}
+
+/* Container for experience items */
+.experience-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.experience-item {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease-out;
+}
+
+.experience-item.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.experience-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+  border-color: var(--brand-primary);
+  box-shadow: 0 8px 32px rgba(0, 255, 209, 0.1);
+  transform: translateY(-4px);
+}
+
+.experience-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 24px;
+}
+
+.experience-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.experience-company {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--brand-primary);
+}
+
+.experience-meta {
+  text-align: right;
+}
+
+.experience-period {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.experience-location {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.experience-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-highlight-item {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.experience-highlight-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-highlight-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 2px;
+  background: var(--brand-primary);
+}
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 60px 20px;
+  }
+
+  .experience-timeline {
+    grid-template-columns: 24px 1fr;
+    gap: 20px;
+  }
+
+  .timeline-line-container {
+    width: 24px;
+  }
+
+  .timeline-dot-animated {
+    width: 16px;
+    height: 16px;
+    box-shadow: 
+      0 0 0 3px var(--bg-primary), 
+      0 0 0 5px var(--brand-primary),
+      0 0 15px rgba(0, 255, 209, 0.5);
+  }
+
+  .experience-items-container {
+    gap: 40px;
+  }
+
+  .experience-card {
+    padding: 30px;
+  }
+
+  .experience-card-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .experience-meta {
+    text-align: left;
+  }
+
+  .experience-period {
+    justify-content: flex-start;
+  }
+
+  .experience-title {
+    font-size: 20px;
+  }
+
+  .experience-company {
+    font-size: 16px;
+  }
+}

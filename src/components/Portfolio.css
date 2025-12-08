@@ -1,0 +1,36 @@
+.portfolio-container {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Section spacing */
+.section {
+  min-height: 100vh;
+  padding: 100px 7.6923%;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+    min-height: auto;
+  }
+}
