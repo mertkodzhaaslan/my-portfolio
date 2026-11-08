@@ -1,52 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React from 'react';
 import './Hero.css';
 
-const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  return (
-    <section id="home" className="hero-section">
-      <div className="hero-grid-overlay"></div>
-      <div className="hero-content">
-        <div className={`hero-text ${isVisible ? 'fade-in' : ''}`}>
-          <div className="hero-label">FULLSTACK DEVELOPER</div>
-          <h1 className="hero-title">
-            From Aircraft to
-            <span className="hero-highlight"> Code</span>
-          </h1>
-          <p className="hero-description">
-            Former aircraft maintenance technician turned full-stack developer.
-            I build scalable web applications with precision and attention to detail—
-            skills honed from aviation safety standards.
-          </p>
-          <div className="hero-buttons">
-            <button className="btn-primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
-              View Projects
-            </button>
-            <button className="btn-secondary" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              Get in Touch
-            </button>
-          </div>
+const Hero = () => (
+  <section id="home" className="hero-section" aria-labelledby="page-title">
+    <div className="page-frame hero-layout">
+      <div className="hero-copy">
+        <p className="hero-kicker">Mert Kodzhaaslan / Portfolio</p>
+        <h1 id="page-title">Mert<br /><em>Kodzhaaslan</em></h1>
+        <p className="hero-intro">Business Systems Analyst at Ryanair Labs and co-founder of Postlia, a social media publishing and scheduling platform.</p>
+        <div className="hero-actions">
+          <a className="text-link text-link--solid" href="#work">Selected work <span aria-hidden="true">↘</span></a>
+          <a className="text-link" href="#contact">Get in touch <span aria-hidden="true">↘</span></a>
         </div>
-        
-        <button className="scroll-indicator" onClick={scrollToAbout}>
-          <ChevronDown size={32} />
-        </button>
       </div>
-    </section>
-  );
-};
+      <aside className="hero-rail" aria-label="Current context">
+        <div><span className="rail-label">Based in</span><p>Wrocław, Poland</p></div>
+        <div><span className="rail-label">Currently</span><p>Business Systems Analyst<br />Ryanair Labs</p></div>
+        <div className="hero-rail__rule" aria-hidden="true" />
+        <p className="hero-rail__note">Applied Computer Science<br />Wrocław University of Science and Technology</p>
+      </aside>
+    </div>
+  </section>
+);
 
 export default Hero;

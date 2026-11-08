@@ -1,65 +1,51 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Header.css';
 
-const Header = ({ activeSection }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const navigation = [
+  { href: '#work', label: 'Work' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
+];
 
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
-  ];
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuButtonRef = useRef(null);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
-    }
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [isOpen]);
+
+  const handleNavigation = (event) => {
+    const targetId = event.currentTarget.getAttribute('href')?.slice(1);
+    setIsOpen(false);
+    window.requestAnimationFrame(() => document.getElementById(targetId)?.focus({ preventScroll: true }));
   };
 
   return (
-    <header className="dark-header">
-      <div className="header-content">
-        <div className="logo" onClick={() => scrollToSection('home')}>
-          <span className="logo-text">MK</span>
-        </div>
-
-        <nav className="dark-nav desktop-nav">
-          {navItems.map(item => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`dark-nav-link ${activeSection === item.id ? 'active' : ''}`}
-            >
-              {item.label}
-            </button>
-          ))}
+    <header className="site-header">
+      <div className="site-header__inner">
+        <a className="wordmark" href="#home" aria-label="Mert Kodzhaaslan, back to top">
+          <span aria-hidden="true">MK</span><span className="wordmark__name">Mert Kodzhaaslan</span>
+        </a>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
-
-        <button 
-          className="mobile-menu-toggle"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        <button ref={menuButtonRef} className="menu-button" type="button" aria-expanded={isOpen} aria-controls="mobile-navigation" aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'} onClick={() => setIsOpen((open) => !open)}>
+          <span className="menu-button__lines" aria-hidden="true"><i /><i /></span><span>Menu</span>
         </button>
       </div>
-
-      {mobileMenuOpen && (
-        <nav className="mobile-nav">
-          {navItems.map(item => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
-            >
-              {item.label}
-            </button>
-          ))}
+      {isOpen && (
+        <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
+          {navigation.map((item, index) => <a key={item.href} href={item.href} onClick={handleNavigation}><span>0{index + 1}</span>{item.label}</a>)}
         </nav>
       )}
     </header>
