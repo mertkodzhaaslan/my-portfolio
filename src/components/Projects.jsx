@@ -1,121 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import React from 'react';
 import './Projects.css';
 
-const Projects = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+const ProjectArrow = () => <span className="project-arrow" aria-hidden="true">↗</span>;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const projects = [
-    {
-      title: 'FoodLink',
-      subtitle: 'Food Donation Web Platform',
-      description: 'Developed a full-stack donation platform with a React frontend and a Node.js/Express backend. Integrated PostgreSQL for item lifecycle and Firebase for real-time alerts and map-based pickup tracking.',
-      technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Firebase'],
-      highlights: [
-        'Real-time donation tracking and notifications',
-        'Map-based pickup location system',
-        'Complete item lifecycle management',
-        'User authentication and authorization'
-      ]
-    },
-    {
-      title: 'Pinder',
-      subtitle: 'iOS App for Pet Matching',
-      description: 'Built a swipe-to-match mobile app with Firebase-powered real-time messaging and user authentication. Designed match logic and animated UI interactions using native iOS components.',
-      technologies: ['Swift', 'Firebase', 'iOS'],
-      highlights: [
-        'Tinder-style swipe interface for pets',
-        'Real-time chat functionality',
-        'Firebase authentication integration',
-        'Smooth animated transitions'
-      ]
-    },
-    {
-      title: 'Group Trip System',
-      subtitle: 'Expense & Itinerary Tool',
-      description: 'Built backend logic and frontend templates for group trip planning and shared budget tracking. Enables multiple users to collaborate on trip planning and expense management.',
-      technologies: ['Node.js', 'MongoDB', 'JavaScript'],
-      highlights: [
-        'Collaborative trip planning',
-        'Shared expense tracking',
-        'Budget management system',
-        'Multi-user support'
-      ]
-    }
-  ];
-
-  return (
-    <section id="projects" className="projects-section" ref={sectionRef}>
-      <div className="projects-content">
-        <div className={`projects-header ${isVisible ? 'fade-in' : ''}`}>
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="section-subtitle">
-            Real-world applications built with modern technologies
-          </p>
+const Projects = () => (
+  <section id="work" className="projects-section section-block" aria-labelledby="work-title" tabIndex="-1">
+    <div className="page-frame">
+      <div className="section-heading"><span className="section-number">01</span><h2 id="work-title">Selected work</h2></div>
+      <article className="postlia-project">
+        <div className="postlia-project__visual">
+          <img src="/images/postlia-brand.jpg" alt="Postlia brand artwork" />
         </div>
-
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`project-card ${isVisible ? 'fade-in' : ''}`}
-              style={{ transitionDelay: `${index * 0.15}s` }}
-            >
-              <div className="project-card-header">
-                <div>
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-subtitle">{project.subtitle}</p>
-                </div>
-              </div>
-
-              <p className="project-description">{project.description}</p>
-
-              <div className="project-highlights">
-                <h4 className="highlights-title">Key Features:</h4>
-                <ul className="highlights-list">
-                  {project.highlights.map((highlight, idx) => (
-                    <li key={idx} className="highlight-item">
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="project-technologies">
-                {project.technologies.map((tech, idx) => (
-                  <span key={idx} className="tech-tag">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="postlia-project__copy">
+          <p className="project-kicker">Co-founder / SaaS</p><h3>Postlia</h3>
+          <p>A social media publishing and scheduling SaaS. I contribute to its publishing engine and scheduler across a multi-platform workflow.</p>
+          <p className="project-stack">Next.js · TypeScript · Supabase/PostgreSQL · Vercel · Social API integration</p>
+          <a className="project-link" href="https://postlia.com/" target="_blank" rel="noopener noreferrer">Visit Postlia <ProjectArrow /></a>
         </div>
-      </div>
-    </section>
-  );
-};
+      </article>
+      <article className="foodlink-project">
+        <div><p className="project-kicker">Team project / University</p><h3>FoodLink</h3></div>
+        <div className="foodlink-project__body"><p>A collaborative food donation project. I contributed to its development across a React, Node and Express application with PostgreSQL and Firebase.</p><p className="project-stack">React · Node.js · Express · PostgreSQL · Firebase</p></div>
+        <a className="project-link" href="https://github.com/mertkodzhaaslan/FoodLink-FLWA" target="_blank" rel="noopener noreferrer">View repository <ProjectArrow /></a>
+      </article>
+    </div>
+  </section>
+);
 
 export default Projects;

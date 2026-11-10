@@ -1,24 +1,25 @@
-# Mert K – Portfolio
+# Mert Kodzhaaslan Portfolio
 
-This is my personal developer portfolio, built with React and Tailwind CSS.  
-It showcases my projects, experience, and skills in modern web development.
+Personal portfolio for Mert Kodzhaaslan, Business Systems Analyst at Ryanair Labs and co-founder of Postlia.
 
----
+## Stack
 
-## Tech Stack
+- React 19
+- Create React App with CRACO
+- CSS and Tailwind CSS
 
-- **React** (Create React App + CRACO)
-- **JavaScript / JSX**
-- **Tailwind CSS**
-- **Custom components & animations**
-
----
-
-## Getting Started
-
-### 1. Install dependencies
-
-Using **Yarn** (recommended):
+## Local development
 
 ```bash
-yarn install
+npm install
+npm start
+```
+
+## Verification
+
+```bash
+CI=true npm test -- --watchAll=false --runInBand --testMatch '**/*.test.jsx' --cacheDirectory .superpowers/jest-cache
+npm run build
+```
+
+The site is designed as a static portfolio. It does not collect visitor data or use a contact form.
