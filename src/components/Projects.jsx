@@ -6,7 +6,7 @@ const ProjectArrow = () => <span className="project-arrow" aria-hidden="true">â†
 const Projects = () => (
   <section id="work" className="projects-section section-block" aria-labelledby="work-title" tabIndex="-1">
     <div className="page-frame">
-      <div className="section-heading"><span className="section-number">01</span><h2 id="work-title">Selected work, shaped around real constraints.</h2></div>
+      <div className="section-heading"><span className="section-number">01</span><h2 id="work-title">Selected work</h2></div>
       <article className="postlia-project">
         <div className="postlia-project__visual">
           <img src="/images/postlia-brand.jpg" alt="Postlia brand artwork" />

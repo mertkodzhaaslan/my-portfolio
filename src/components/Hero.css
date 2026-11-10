@@ -15,5 +15,5 @@
 .hero-rail p { margin: 0; color: var(--ink); font-size: 0.83rem; line-height: 1.55; }
 .hero-rail__rule { height: 1px; padding: 0 !important; background: var(--rule); }
 .hero-rail p.hero-rail__note { color: var(--muted); font-size: 0.76rem; }
-@media (max-width: 760px) { .hero-section { align-items: start; min-height: 0; padding: 80px 0 90px; } .hero-layout { grid-template-columns: 1fr; gap: 70px; } .hero-copy h1 { font-size: clamp(4.45rem, 19.5vw, 7.6rem); } .hero-rail { grid-template-columns: 1fr 1fr; gap: 16px; max-width: 440px; } .hero-rail__rule { display: none; } }
+@media (max-width: 760px) { .hero-section { align-items: start; min-height: 0; padding: 80px 0 90px; } .hero-layout { grid-template-columns: 1fr; gap: 70px; } .hero-copy h1 { font-size: clamp(3.15rem, 18.25vw, 7.6rem); } .hero-rail { grid-template-columns: 1fr 1fr; gap: 16px; max-width: 440px; } .hero-rail__rule { display: none; } }
 @media (max-width: 420px) { .hero-rail { grid-template-columns: 1fr; gap: 21px; } }

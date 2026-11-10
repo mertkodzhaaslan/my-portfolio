@@ -10,7 +10,7 @@ const experiences = [
 const Experience = () => (
   <section id="experience" className="experience-section section-block" aria-labelledby="experience-title" tabIndex="-1">
     <div className="page-frame">
-      <div className="section-heading section-heading--split"><span className="section-number">02</span><h2 id="experience-title">Experience, in sequence.</h2></div>
+      <div className="section-heading section-heading--split"><span className="section-number">02</span><h2 id="experience-title">Experience</h2></div>
       <div className="experience-list">
         {experiences.map((experience) => <article className="experience-row" key={`${experience.company}-${experience.role}`}><p className="experience-row__period">{experience.period}</p><div><h3>{experience.role}</h3><p className="experience-row__company">{experience.company}</p></div>{experience.detail ? <p className="experience-row__detail">{experience.detail}</p> : <span className="experience-row__detail" aria-hidden="true" />}</article>)}
       </div>

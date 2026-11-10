@@ -6,7 +6,7 @@ const About = () => (
     <div className="page-frame about-layout">
       <div className="section-heading about-heading">
         <span className="section-number">03</span>
-        <h2 id="about-title">A practical foundation, with room to keep learning.</h2>
+        <h2 id="about-title">A bit about me</h2>
       </div>
       <div className="about-copy">
         <p>Based in Wrocław, Poland, I studied Applied Computer Science at Wrocław University of Science and Technology from 2021 to 2025.</p>

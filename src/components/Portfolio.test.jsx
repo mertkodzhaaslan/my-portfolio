@@ -65,6 +65,8 @@ test('shows verified roles and links only to public project destinations', () =>
 
   expect(copy).toContain('Business Systems Analyst');
   expect(copy).toContain('Application Support Analyst Intern');
+  expect(copy).toContain('Oct 2026–Present');
+  expect(copy).toContain('Jul 2026–Sep 2026');
   expect(copy).toContain('Jul 2024–Oct 2024');
   expect(copy).not.toMatch(/certif/i);
 
