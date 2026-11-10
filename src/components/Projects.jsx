@@ -10,8 +10,6 @@ const Projects = () => (
       <article className="postlia-project">
         <div className="postlia-project__visual">
           <img src="/images/postlia-brand.jpg" alt="Postlia brand artwork" />
-          <img className="postlia-project__mark" src="/images/postlia-icon.svg" alt="" aria-hidden="true" />
-          <span className="postlia-project__caption">Postlia / Publishing &amp; scheduling</span>
         </div>
         <div className="postlia-project__copy">
           <p className="project-kicker">Co-founder / SaaS</p><h3>Postlia</h3>
